@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'myFont';
+  src: url('./assets/Gotag-BF646dc9786ebbc.ttf');
+}
+
+* {
+  font-family: myFont, 'sans-serif';
+}
