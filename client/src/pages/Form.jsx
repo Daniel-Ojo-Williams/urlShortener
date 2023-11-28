@@ -37,7 +37,8 @@ const Form = () => {
         longUrl: urlValue,
         userOption: userInput ? userInput : ''
       })
-      setShortUrl(response.data.shortUrl)
+      let url = response.data.shortUrl
+      setShortUrl(`minify.com/${url}`)
       setResult(true)
       toast.dismiss(loading)
       toast.success('short url generated successfully')
@@ -50,8 +51,7 @@ const Form = () => {
 
   const handleCopy = async (e) => {
     e.preventDefault()
-    const miniLink = `https://www.minify.com/${shortUrl}`
-    navigator.clipboard.writeText(miniLink).then(
+    navigator.clipboard.writeText(shortUrl).then(
       () => toast.success('Link copied to clipboard'))
       .catch(() => toast.error('Failed to copy link'))
   }
@@ -97,15 +97,12 @@ const Form = () => {
 
         {result && <div className="result">
           <div className="cont resultText">
-            <div className="minifyText">
-              <p>Minify.com</p>
-            </div>
             <input 
             type="text" 
             className="input" 
             value={shortUrl}
             readOnly
-            style={{color: 'black'}}
+              style={{ color: '#7db3ec', fontSize: '16px'}}
             />
           </div>
             <button 

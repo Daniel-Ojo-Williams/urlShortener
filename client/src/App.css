@@ -112,6 +112,8 @@ form {
 
 .resultText {
   background: #0F4279;
+  /* background: #7db3ec; */
+  width: 100%;
 }
 
 .copy {
