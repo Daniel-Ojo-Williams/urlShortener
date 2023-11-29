@@ -3,7 +3,7 @@ import UrlShortener from "../schema/urlShort.js";
 import { nanoid } from "nanoid";
 
 
-export const generateUniqueUrl = (userInput) => {
+const generateUniqueUrl = (userInput) => {
   return new Promise(async (resolve, reject) => {
     let isUnique = false;
     let shortUrl = userInput || nanoid(6).replace(/[o0OlI_-]/g, "");
@@ -42,3 +42,4 @@ export const generateUniqueUrl = (userInput) => {
   });
 };
 
+export default generateUniqueUrl
