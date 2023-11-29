@@ -18,6 +18,7 @@ const Form = () => {
     const input = e.target.value
     setUserInput(input)
     setShortUrl(input)
+    setResult(false)
   }
 
   const handleKeyPress = (e) => {
@@ -28,6 +29,9 @@ const Form = () => {
 
   const handleMinify = async (e) => {
     e.preventDefault()
+    if(!urlValue.length > 0){
+      return toast.error('Enter long Url to shorten')
+    }
     if(userInput && userInput.length < 6){
       return toast.error('shortURL must be at least 6 characters')
     }
@@ -43,7 +47,7 @@ const Form = () => {
       toast.dismiss(loading)
       toast.success('short url generated successfully')
     } catch (error) {
-      const { message } = await error.response?.data
+      let message = await error.response?.data
       toast.dismiss(loading)
       toast.error(message)
     }
