@@ -30,13 +30,15 @@ app.all('*', (req, res, next) => {
 
 app.use(globalErrorHandler);
 
+const PORT = process.env.PORT || 2000
+
 const start = async () => {
   try {
       await mongoose.connect(process.env.DB_URI)
 
       console.log('DB Connected')
 
-      app.listen(2000, () => console.log("App started"));
+      app.listen(PORT, () => console.log("App started"));
     } catch (error) {
       console.log(error.message);
     }
