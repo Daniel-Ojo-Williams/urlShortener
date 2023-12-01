@@ -37,12 +37,12 @@ const Form = () => {
     }
     const loading = toast.loading('Generating URL')
     try {
-      const response = await axios.post('http://localhost:2000/api/minify', {
+      const response = await axios.post('https://minify.onrender.com/api/minify', {
         longUrl: urlValue,
         userOption: userInput ? userInput : ''
       })
       let url = response.data.shortUrl
-      setShortUrl(`minify.com/${url}`)
+      setShortUrl(`minify.onrender.com/${url}`)
       setResult(true)
       toast.dismiss(loading)
       toast.success('short url generated successfully')
