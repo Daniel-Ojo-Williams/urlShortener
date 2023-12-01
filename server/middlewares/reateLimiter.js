@@ -6,5 +6,6 @@ export const rateLimitUsingThirdParty = rateLimit({
   message: 'You have exceeded the 3 requests in 1 minute limit!',
   standardHeaders: true,
   legacyHeaders: false,
+  validate: {trustProxy: 1}
 })
 
