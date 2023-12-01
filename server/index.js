@@ -12,6 +12,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.enable('trust proxy')
 
 const __dirname = url.fileURLToPath(new URL('../client/dist', import.meta.url))
 app.use(express.static(__dirname))
